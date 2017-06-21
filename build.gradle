@@ -20,7 +20,12 @@ switch ( OperatingSystem.current() ) {
         break
 }
 
-project.ext.lwjglVersion = "3.1.1"
+project.ext.lwjglVersion = "3.1.2"
+
+sourceSets.main.java.srcDirs = ['src/main/java']
+mainClassName = "HelloWorld"
+
+applicationDefaultJvmArgs = ["-XstartOnFirstThread"]
 
 repositories {
     mavenCentral()
@@ -46,13 +51,16 @@ dependencies {
     compile "org.lwjgl:lwjgl-opencl:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-opengl:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-opengles:${lwjglVersion}"
-    compile "org.lwjgl:lwjgl-ovr:${lwjglVersion}"
+    compile "org.lwjgl:lwjgl-openvr:${lwjglVersion}"
+    //compile "org.lwjgl:lwjgl-ovr:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-par:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-sse:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-stb:${lwjglVersion}"
+    compile "org.lwjgl:lwjgl-tinyexr:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-tinyfd:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-vulkan:${lwjglVersion}"
     compile "org.lwjgl:lwjgl-xxhash:${lwjglVersion}"
+    compile "org.lwjgl:lwjgl-yoga:${lwjglVersion}"
     runtime "org.lwjgl:lwjgl:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-assimp:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-bgfx:${lwjglVersion}:${lwjglNatives}"
@@ -65,12 +73,15 @@ dependencies {
     runtime "org.lwjgl:lwjgl-openal:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-opengl:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-opengles:${lwjglVersion}:${lwjglNatives}"
-    runtime "org.lwjgl:lwjgl-ovr:${lwjglVersion}:${lwjglNatives}"
+    runtime "org.lwjgl:lwjgl-openvr:${lwjglVersion}:${lwjglNatives}"
+    //runtime "org.lwjgl:lwjgl-ovr:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-par:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-sse:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-stb:${lwjglVersion}:${lwjglNatives}"
+    runtime "org.lwjgl:lwjgl-tinyexr:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-tinyfd:${lwjglVersion}:${lwjglNatives}"
     runtime "org.lwjgl:lwjgl-xxhash:${lwjglVersion}:${lwjglNatives}"
+    runtime "org.lwjgl:lwjgl-yoga:${lwjglVersion}:${lwjglNatives}"
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
